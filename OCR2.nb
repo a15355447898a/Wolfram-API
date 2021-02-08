@@ -1,0 +1,640 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27931,        632]
+NotebookOptionsPosition[     26068,        593]
+NotebookOutlinePosition[     26479,        610]
+CellTagsIndexPosition[     26436,        607]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\:83b7\:53d6AccessToken", "[", 
+   RowBox[{"appid_", ",", "appid\:7684\:5bc6\:5319_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\:5e94\:7528\:7684APIKey", "=", "appid"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\:5e94\:7528\:7684SecretKey", "=", "appid\:7684\:5bc6\:5319"}],
+       ",", "\[IndentingNewLine]", "\:7f51\:5740", ",", "\[IndentingNewLine]",
+       "API\:7684\:53cd\:9988", ",", "\[IndentingNewLine]", 
+      "\:63d0\:53d6AccessToken"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\:7f51\:5740", "=", 
+      RowBox[{
+      "\"\<https://aip.baidubce.com/oauth/2.0/token?grant_type=client_\
+credentials&client_id=\>\"", "<>", 
+       RowBox[{"ToString", "[", "\:5e94\:7528\:7684APIKey", "]"}], "<>", 
+       "\"\<&client_secret=\>\"", "<>", 
+       RowBox[{"ToString", "[", "\:5e94\:7528\:7684SecretKey", "]"}], "<>", 
+       "\"\<&\>\""}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"API\:7684\:53cd\:9988", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{"\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], "]"}]}], 
+     RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\:63d0\:53d6AccessToken", "=", 
+      RowBox[{"StringTake", "[", 
+       RowBox[{"API\:7684\:53cd\:9988", ",", 
+        RowBox[{"{", 
+         RowBox[{"246", ",", "315"}], "}"}]}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8217311048961*^9, 3.821731246812566*^9}, {
+  3.821731824927502*^9, 3.821731826568009*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"5e10a009-6af4-47fa-8ac9-61e14461a147"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "\:56fe\:7247Base64\:7f16\:7801", "[", "\:56fe\:7247\:4f4d\:7f6e_", "]"}], ":=",
+   "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\:4f4d\:7f6e", "=", "\:56fe\:7247\:4f4d\:7f6e"}], ",", 
+      "\[IndentingNewLine]", "Base64\:7f16\:7801"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Base64\:7f16\:7801", "=", 
+     RowBox[{"ToLowerCase", "[", 
+      RowBox[{"URLEncode", "[", 
+       RowBox[{
+       "(*", "\:56fe\:7247\:8f6c\:5316\:6210Base64\:7f16\:7801", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"StringDrop", "[", 
+         RowBox[{
+          RowBox[{"StringDrop", "[", 
+           RowBox[{
+            RowBox[{"ToString", "[", 
+             RowBox[{"ExternalEvaluate", "[", 
+              RowBox[{"\"\<Python\>\"", ",", 
+               RowBox[{"{", 
+                RowBox[{"\"\<import base64\>\"", ",", 
+                 RowBox[{"\"\<with open('\>\"", "<>", 
+                  RowBox[{"StringReplace", "[", 
+                   RowBox[{"\:4f4d\:7f6e", ",", 
+                    RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}],
+                   "<>", "\"\<','rb') as f:base64_data = \
+base64.b64encode(f.read());\>\""}], ",", "\"\<base64_data.decode()\>\""}], 
+                "}"}]}], "]"}], "]"}], "\[IndentingNewLine]", ",", "13"}], 
+           "]"}], "\[IndentingNewLine]", ",", 
+          RowBox[{"-", "1"}]}], "]"}], ",", 
+        RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellLabel->"In[8]:=",ExpressionUUID->"f2ff6894-e592-47d2-bb47-e51825089a76"],
+
+Cell[BoxData["HTTPRequestData"], "Input",
+ CellChangeTimes->{{3.8216996245286098`*^9, 3.821699632215523*^9}, {
+  3.821699726030233*^9, 
+  3.821699726030233*^9}},ExpressionUUID->"57e7b1cb-1e9c-4592-86ce-\
+bf5148ed977f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\:83b7\:53d6AccessToken", "[", 
+  RowBox[{
+  "Nw6CPD3exncAAVZ3UF4Hfpz6", ",", "WSAVSETPg0GOAiNyq70kRTF996XSVxix"}], 
+  "]"}]], "Input",
+ CellLabel->"In[19]:=",ExpressionUUID->"31bfd101-9e05-47c2-8dc7-0e62e05d7b8b"],
+
+Cell[BoxData["\<\"24.cd7ad03c2b00274e23cc62cb32307414.2592000.1615342699.\
+282335-19166123\"\>"], "Output",
+ CellChangeTimes->{3.8217395019679737`*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"bc1641cb-7b36-4316-a29e-81dab7084922"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", 
+  RowBox[{"\:56fe\:7247", "=", 
+   RowBox[{
+   "\:56fe\:7247Base64\:7f16\:7801", "[", 
+    "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\>\"", "]"}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.8217426247288136`*^9, 3.8217426431637154`*^9}, {
+  3.82174268472794*^9, 3.8217427235594535`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"77cc68f7-7552-402c-9224-24424379d4c8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"URLRead", "[", 
+  RowBox[{"HTTPRequest", "[", 
+   RowBox[{
+    RowBox[{
+    "\"\<https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=\
+\>\"", "<>", 
+     RowBox[{"\:83b7\:53d6AccessToken", "[", 
+      RowBox[{
+      "Nw6CPD3exncAAVZ3UF4Hfpz6", ",", "WSAVSETPg0GOAiNyq70kRTF996XSVxix"}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"<|", 
+     RowBox[{
+      RowBox[{"Method", "\[RightArrow]", "\"\<POST\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+      "\"\<Content-Type\>\"", "\[RightArrow]", 
+       "\"\<application/x-www-form-urlencoded\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<Body\>\"", "\[RightArrow]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<image\>\"", "\[RightArrow]", 
+          RowBox[{
+          "\:56fe\:7247Base64\:7f16\:7801", "[", 
+           "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\>\"", 
+           "]"}]}], ",", 
+         RowBox[{"\"\<language_type\>\"", "\[RightArrow]", "\"\<JAP\>\""}], 
+         ",", 
+         RowBox[{
+         "\"\<detect_language\>\"", "\[RightArrow]", "\"\<true\>\""}]}], 
+        "}"}]}]}], "|>"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8216995812322664`*^9, 3.8216996114440765`*^9}, 
+   3.821699760830698*^9, {3.8216998794353704`*^9, 3.82169995245516*^9}, {
+   3.8216999992146544`*^9, 3.821700047736846*^9}, {3.8217002981100335`*^9, 
+   3.82170031592603*^9}, {3.821701035154834*^9, 3.821701151017048*^9}, {
+   3.8217307314808874`*^9, 3.821730757679126*^9}, {3.8217308107585635`*^9, 
+   3.8217309150079727`*^9}, 3.821731222805954*^9, {3.8217312672173824`*^9, 
+   3.8217312880283957`*^9}, {3.821738838819642*^9, 3.8217388434526787`*^9}, {
+   3.821739458616043*^9, 3.8217394780507*^9}, {3.821739654833666*^9, 
+   3.821739674033939*^9}, {3.821742851373864*^9, 3.8217428543111525`*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"65f52a0a-65e4-4e35-ae2d-aaa1f3f1cd63"],
+
+Cell[BoxData[
+ RowBox[{"URLRead", "[", 
+  RowBox[{"HTTPRequest", "[", 
+   RowBox[{"\<\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_\
+token=24.9f6e645e8ce2893a2ee15abf8eca0367.2592000.1615346057.282335-19166123\"\
+\>", ",", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"Method", "\[RightArrow]", "\<\"POST\"\>"}], ",", 
+      RowBox[{"\<\"Content-Type\"\>", 
+       "\[RightArrow]", "\<\"application/x-www-form-urlencoded\"\>"}], ",", 
+      RowBox[{"\<\"Body\"\>", "\[RightArrow]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\<\"image\"\>", "\[RightArrow]", 
+          RowBox[{
+          "\:56fe\:7247Base64\:7f16\:7801", 
+           "[", "\<\"P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\"\
+\>", "]"}]}], ",", 
+         RowBox[{"\<\"language_type\"\>", "\[RightArrow]", "\<\"JAP\"\>"}], 
+         ",", 
+         RowBox[{"\<\"detect_language\"\>", 
+          "\[RightArrow]", "\<\"true\"\>"}]}], "}"}]}]}], "]"}]}], "]"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.8217309289756985`*^9, 3.8217309870066137`*^9, 
+  3.8217313820216045`*^9, 3.821731926435833*^9, 3.821738849686599*^9, 
+  3.8217394807080526`*^9, 3.8217396781234274`*^9, 3.821742861071418*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"ce6c5845-e49e-472d-b1e4-1db5b378fb37"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"req", " ", "=", " ", 
+  RowBox[{
+  "HTTPRequest", "[", 
+   "\"\<https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8217430403069696`*^9, 3.821743049546002*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"d19b7940-ad0e-4fee-bb4b-3c61c4807944"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["HTTPRequest",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"GET\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{
+                    TagBox[
+                    "\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic\
+\"", Short], "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"}, 
+                   "HyperlinkURL"], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"GET\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{
+                    TagBox[
+                    "\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic\
+\"", Short], "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"}, 
+                   "HyperlinkURL"], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  HTTPRequest["https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic", 
+   Association[]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.8217430529870586`*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"6bfbb16c-9106-4583-8626-b183982efa2b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"URLRead", "[", "req", "]"}]], "Input",
+ CellChangeTimes->{{3.8217430752687173`*^9, 3.8217430766834097`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"7544e93a-55f0-4555-85d3-b15616619d51"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["HTTPResponse",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"200\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Status: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"OK\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Content type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"application/json\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"200\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Status: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"OK\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Content type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"application/json\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  HTTPResponse[
+   ByteArray[{123, 34, 101, 114, 114, 111, 114, 95, 99, 111, 100, 101, 34, 58,
+     49, 48, 48, 44, 34, 101, 114, 114, 111, 114, 95, 109, 115, 103, 34, 58, 
+    34, 73, 110, 118, 97, 108, 105, 100, 32, 112, 97, 114, 97, 109, 101, 116, 
+    101, 114, 34, 125}], 
+   Association[
+   "Headers" -> {{"Connection", "keep-alive"}, {"Content-Encoding", "gzip"}, {
+      "Content-Type", "application/json"}, {
+      "Date", "Mon, 08 Feb 2021 03:17:55 GMT"}, {
+      "P3p", "CP=\" OTI DSP COR IVA OUR IND COM \""}, {
+      "P3p", "CP=\" OTI DSP COR IVA OUR IND COM \""}, {"Server", "Apache"}, {
+      "Set-Cookie", 
+       "BAIDUID=A183B89DB95EB7188E93DE452E390FDB:FG=1; expires=Thu, 31-Dec-37 \
+23:55:55 GMT; max-age=2145916555; path=/; domain=.baidu.com; version=1"}, {
+      "Set-Cookie", 
+       "BAIDUID=A183B89DB95EB718D7FEBED3361D6C03:FG=1; expires=Thu, 31-Dec-37 \
+23:55:55 GMT; max-age=2145916555; path=/; domain=.baidu.com; version=1"}, {
+      "Vary", "Accept-Encoding"}, {"Content-Length", "65"}}, "StatusCode" -> 
+    200, "Cookies" -> {}], CharacterEncoding -> Automatic],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.8217430772779975`*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"a08e9731-6b45-4eac-9edc-1f2ade3209d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HTTPRequest", "[", 
+  RowBox[{"req", ",", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Body\>\"", "\[RightArrow]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<image\>\"", "\[RightArrow]", 
+       RowBox[{
+       "\:56fe\:7247Base64\:7f16\:7801", "[", 
+        "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\>\"", 
+        "]"}]}], "}"}]}], "|>"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.821743245624115*^9, 3.821743323358864*^9}, {
+  3.82174342958687*^9, 3.8217434436113214`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"4c5f62bc-2556-49f8-bf77-5d368311a282"],
+
+Cell[BoxData[
+ RowBox[{"HTTPRequest", "[", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox["HTTPRequest",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+      "Ready"}, 
+      TemplateBox[{
+        PaneSelectorBox[{False -> GridBox[{{
+              GraphicsBox[{
+                RGBColor[0, 
+                 NCache[
+                  Rational[2, 3], 0.6666666666666666], 0], 
+                DiskBox[{0, 0}], 
+                InsetBox[
+                 FormBox[
+                  StyleBox["\"GET\"", 
+                   Directive[10, 
+                    GrayLevel[1], Bold], StripOnInput -> False], 
+                  TraditionalForm], 
+                 Scaled[{0.53, 0.48}]]}, ImageSize -> 
+               Dynamic[{
+                 Automatic, (3 CurrentValue["FontCapHeight"])/
+                  AbsoluteCurrentValue[Magnification]}], Background -> None], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    TemplateBox[{
+                    TagBox[
+                    "\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic\
+\"", Short], "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"}, 
+                    "HyperlinkURL"], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["None", "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}], True -> GridBox[{{
+              GraphicsBox[{
+                RGBColor[0, 
+                 NCache[
+                  Rational[2, 3], 0.6666666666666666], 0], 
+                DiskBox[{0, 0}], 
+                InsetBox[
+                 FormBox[
+                  StyleBox["\"GET\"", 
+                   Directive[10, 
+                    GrayLevel[1], Bold], StripOnInput -> False], 
+                  TraditionalForm], 
+                 Scaled[{0.53, 0.48}]]}, ImageSize -> 
+               Dynamic[{
+                 Automatic, (3 CurrentValue["FontCapHeight"])/
+                  AbsoluteCurrentValue[Magnification]}], Background -> None], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    TemplateBox[{
+                    TagBox[
+                    "\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic\
+\"", Short], "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"}, 
+                    "HyperlinkURL"], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["None", "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}]}, 
+         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+       "SummaryPanel"],
+      DynamicModuleValues:>{}], "]"}],
+    HTTPRequest["https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic", 
+     Association[]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   RowBox[{"Association", "[", 
+    RowBox[{"\<\"Body\"\>", "\[RightArrow]", 
+     RowBox[{"{", 
+      RowBox[{"\<\"image\"\>", "\[RightArrow]", 
+       RowBox[{
+       "\:56fe\:7247Base64\:7f16\:7801", 
+        "[", "\<\"P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\"\>",
+         "]"}]}], "}"}]}], "]"}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.8217434376362624`*^9, 3.821743445311535*^9}},
+ CellLabel->"Out[32]=",ExpressionUUID->"1529c850-dc0e-43f6-ac12-b53a4b6623e2"]
+}, Open  ]],
+
+Cell[BoxData["                                                                \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                         "], "Input",
+ CellChangeTimes->{{3.8217442564448624`*^9, 
+  3.8217443185432377`*^9}},ExpressionUUID->"54e4a067-3c9f-4653-b9d8-\
+c08efc186edd"]
+},
+WindowSize->{600, 676},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5367af9f-8a43-41a9-be02-916039af2ebc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1849, 39, 385, "Input",ExpressionUUID->"5e10a009-6af4-47fa-8ac9-61e14461a147"],
+Cell[2410, 61, 1798, 40, 422, "Input",ExpressionUUID->"f2ff6894-e592-47d2-bb47-e51825089a76"],
+Cell[4211, 103, 218, 4, 45, "Input",ExpressionUUID->"57e7b1cb-1e9c-4592-86ce-bf5148ed977f"],
+Cell[CellGroupData[{
+Cell[4454, 111, 238, 5, 48, "Input",ExpressionUUID->"31bfd101-9e05-47c2-8dc7-0e62e05d7b8b"],
+Cell[4695, 118, 230, 3, 52, "Output",ExpressionUUID->"bc1641cb-7b36-4316-a29e-81dab7084922"]
+}, Open  ]],
+Cell[4940, 124, 431, 9, 66, "Input",ExpressionUUID->"77cc68f7-7552-402c-9224-24424379d4c8"],
+Cell[CellGroupData[{
+Cell[5396, 137, 1947, 41, 292, "Input",ExpressionUUID->"65f52a0a-65e4-4e35-ae2d-aaa1f3f1cd63"],
+Cell[7346, 180, 1293, 27, 147, "Output",ExpressionUUID->"ce6c5845-e49e-472d-b1e4-1db5b378fb37"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8676, 212, 318, 7, 85, "Input",ExpressionUUID->"d19b7940-ad0e-4fee-bb4b-3c61c4807944"],
+Cell[8997, 221, 4476, 99, 73, "Output",ExpressionUUID->"6bfbb16c-9106-4583-8626-b183982efa2b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13510, 325, 211, 3, 45, "Input",ExpressionUUID->"7544e93a-55f0-4555-85d3-b15616619d51"],
+Cell[13724, 330, 5041, 106, 69, "Output",ExpressionUUID->"a08e9731-6b45-4eac-9edc-1f2ade3209d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18802, 441, 607, 13, 104, "Input",ExpressionUUID->"4c5f62bc-2556-49f8-bf77-5d368311a282"],
+Cell[19412, 456, 5094, 112, 158, "Output",ExpressionUUID->"1529c850-dc0e-43f6-ac12-b53a4b6623e2"]
+}, Open  ]],
+Cell[24521, 571, 1543, 20, 181, "Input",ExpressionUUID->"54e4a067-3c9f-4653-b9d8-c08efc186edd"]
+}
+]
+*)
+

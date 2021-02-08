@@ -1,0 +1,509 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21768,        501]
+NotebookOptionsPosition[     19748,        462]
+NotebookOutlinePosition[     20159,        479]
+CellTagsIndexPosition[     20116,        476]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\:83b7\:53d6AccessToken", "[", 
+   RowBox[{"appid_", ",", "appid\:7684\:5bc6\:5319_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\:5e94\:7528\:7684APIKey", "=", "appid"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\:5e94\:7528\:7684SecretKey", "=", "appid\:7684\:5bc6\:5319"}],
+       ",", "\[IndentingNewLine]", "\:7f51\:5740", ",", "\[IndentingNewLine]",
+       "API\:7684\:53cd\:9988", ",", "\[IndentingNewLine]", 
+      "\:63d0\:53d6AccessToken"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\:7f51\:5740", "=", 
+      RowBox[{
+      "\"\<https://aip.baidubce.com/oauth/2.0/token?grant_type=client_\
+credentials&client_id=\>\"", "<>", 
+       RowBox[{"ToString", "[", "\:5e94\:7528\:7684APIKey", "]"}], "<>", 
+       "\"\<&client_secret=\>\"", "<>", 
+       RowBox[{"ToString", "[", "\:5e94\:7528\:7684SecretKey", "]"}], "<>", 
+       "\"\<&\>\""}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"API\:7684\:53cd\:9988", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{"\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], "]"}]}], 
+     RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\:63d0\:53d6AccessToken", "=", 
+      RowBox[{"StringTake", "[", 
+       RowBox[{"API\:7684\:53cd\:9988", ",", 
+        RowBox[{"{", 
+         RowBox[{"246", ",", "315"}], "}"}]}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8216487512320795`*^9, 3.8216487561740427`*^9}, {
+  3.8216490238190174`*^9, 3.8216493462032857`*^9}, {3.821649396299505*^9, 
+  3.8216494029828043`*^9}, {3.8216497262117605`*^9, 3.8216497665055623`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"519f7c3b-7a75-42b5-a66f-556ed9b65928"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\:83b7\:53d6AccessToken", "[", 
+  RowBox[{
+  "Nw6CPD3exncAAVZ3UF4Hfpz6", ",", "WSAVSETPg0GOAiNyq70kRTF996XSVxix"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8216494354028893`*^9, 3.821649450777033*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"19c68695-4c3a-4870-a41c-1afaed8629b5"],
+
+Cell[BoxData["\<\"24.7fc1430ec8fc50eedf650c30d8f92c06.2592000.1615252964.\
+282335-19166123\"\>"], "Output",
+ CellChangeTimes->{3.821649452436895*^9, 3.8216497692010803`*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"6ae05712-20f9-47da-9282-96063dfe8e19"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"OCR", "[", 
+   RowBox[{
+   "appid_", ",", "appid\:7684\:5bc6\:5319_", ",", 
+    "\:56fe\:7247\:4f4d\:7f6e\:5b57\:7b26\:4e32_"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"(*", "\:57fa\:7840\:7684\:53d8\:91cf", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\:5e94\:7528\:7684APIKey", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"\:5e94\:7528\:7684SecretKey", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid\:7684\:5bc6\:5319", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+      "\:56fe\:7247", "=", "\:56fe\:7247\:4f4d\:7f6e\:5b57\:7b26\:4e32"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"(*", "AccessToken\:7684\:53d8\:91cf", "*)"}], 
+      "\[IndentingNewLine]", "AccessToken\:7f51\:5740", ",", 
+      "\[IndentingNewLine]", "AccessTokenAPI\:7684\:53cd\:9988", ",", 
+      "\[IndentingNewLine]", "\:83b7\:53d6AccessToken", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", "OCR\:7684\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+      "OCR\:7f51\:5740", ",", "\[IndentingNewLine]", 
+      "OCRAPI\:7684\:53cd\:9988"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", "\:83b7\:53d6AccessToken", "*)"}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"AccessToken\:7f51\:5740", "=", 
+      RowBox[{
+      "\"\<https://aip.baidubce.com/oauth/2.0/token?grant_type=client_\
+credentials&client_id=\>\"", "<>", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:5e94\:7528\:7684APIKey", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+       "<>", "\"\<&client_secret=\>\"", "<>", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:5e94\:7528\:7684SecretKey", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+       "<>", "\"\<&\>\""}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"AccessTokenAPI\:7684\:53cd\:9988", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"Import", "[", 
+         RowBox[{"AccessToken\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], 
+        ",", 
+        RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+     RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\:83b7\:53d6AccessToken", "=", 
+      RowBox[{"StringTake", "[", 
+       RowBox[{"AccessTokenAPI\:7684\:53cd\:9988", ",", 
+        RowBox[{"{", 
+         RowBox[{"246", ",", "315"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"\:8fde\:63a5\:5230OCR", " ", "API"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"OCR\:7f51\:5740", "=", 
+      RowBox[{
+      "\"\<https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_\
+token=\>\"", " ", "<>", "\:83b7\:53d6AccessToken", "<>", "\"\<image=\>\"", "<>", 
+       RowBox[{"ToLowerCase", "[", 
+        RowBox[{"URLEncode", "[", 
+         RowBox[{
+         "(*", "\:56fe\:7247\:8f6c\:5316\:6210Base64\:7f16\:7801", "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"StringDrop", "[", 
+           RowBox[{
+            RowBox[{"StringDrop", "[", 
+             RowBox[{
+              RowBox[{"ToString", "[", 
+               RowBox[{"ExternalEvaluate", "[", 
+                RowBox[{"\"\<Python\>\"", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<import base64\>\"", ",", 
+                   RowBox[{"\"\<with open('\>\"", "<>", 
+                    RowBox[{"StringReplace", "[", 
+                    RowBox[{"\:56fe\:7247", ",", 
+                    RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}],
+                     "<>", "\"\<','rb') as f:base64_data = \
+base64.b64encode(f.read());\>\""}], ",", "\"\<base64_data.decode()\>\""}], 
+                  "}"}]}], "]"}], "]"}], "\[IndentingNewLine]", ",", "13"}], 
+             "]"}], "\[IndentingNewLine]", ",", 
+            RowBox[{"-", "1"}]}], "]"}], ",", 
+          RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+        "]"}], "<>", 
+       "\"\</Content-Type:application/x-www-form-urlencoded\>\""}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"OCRAPI\:7684\:53cd\:9988", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{"OCR\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], 
+       "]"}]}]}]}], 
+   RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.821649844672497*^9, 3.821649851580295*^9}, {
+   3.82164998787087*^9, 3.821650007205988*^9}, {3.821650688135991*^9, 
+   3.821650718690494*^9}, 3.821650787155074*^9, {3.8216508306255674`*^9, 
+   3.821650838562529*^9}, {3.8216509654389353`*^9, 3.8216509804142666`*^9}, {
+   3.821651059251545*^9, 3.8216514697704945`*^9}, {3.8216515670932407`*^9, 
+   3.821651599919574*^9}, {3.8216519693213344`*^9, 3.82165200917356*^9}, {
+   3.821652045738402*^9, 3.821652086266614*^9}, {3.8216643090975776`*^9, 
+   3.8216643166974144`*^9}, 3.8216646276935062`*^9},
+ CellLabel->"In[98]:=",ExpressionUUID->"7b7e9089-78c9-4c0d-a34c-aba08c2ad6ec"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OCR", "[", 
+  RowBox[{
+  "Nw6CPD3exncAAVZ3UF4Hfpz6", ",", "WSAVSETPg0GOAiNyq70kRTF996XSVxix", ",", 
+   "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\\:5404\:79cd\:56fe\:7247\\\\QQ\
+\:56fe\:724720200826224800.jpg\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.821651475174359*^9, 3.8216514872477407`*^9}, 
+   3.8216515217051587`*^9},
+ CellLabel->"In[99]:=",ExpressionUUID->"d8ce5f34-cbb8-453f-bf1c-1a3df600bca3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FetchURL", "conopen", 
+   "\"The connection to URL \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"https://aip.baidubce.com/rest/2.0/ocr/v1/general_\
+basic?access_token=24.96550eb4dc3a50fb2e3a685bd1e2a276.2592000.1615267832.\
+282335-19166123image=%2f9j%2f4aaqskzjrgabaqeasabiaad%\
+2f2wbdaaohbwghbgoicaglcgoldhgqdg0ndh0vfheyix8ljcifiiemkzcvjik0kseimeexndk7pj4%\
+2bjs5esum8sdc9pjv%\
+2f2wbdaqolcw4ndhwqebw7kcioozs7ozs7ozs7ozs7ozs7ozs7ozs7ozs7oz\\\\\\\"\\\", \
+\\\"\[Ellipsis]\\\", \
+\\\"\\\\\\\"aaefmwx2h%\
+2bbzphyn1dybw3wieg5uzqghljylvysm1tktnc8v05tn5kruse7l03ix6lfxzbw4rk%\
+2b5bm7hphjy9dfa2hxfrivygngb4b6aaapd0aaeaegaaaaaaaaaaaeaegaaaaaaaahghoaaa8pqaaa\
+aaaaaaaaa8pqaaaaaaaaapd0aaaaaaaaaaaaaaaaaaaapd0aaeaeghghoaaaaaaaaaaaaaaaaaaahg\
+hoaaaaaaaaaaaaaaaaaaaaaaaapd0adw9aaaaaaaaaaad%2f%2fz/Content-Type:application/\
+x-www-form-urlencoded\\\\\\\"\\\"}]\\) cannot be opened. If the URL is \
+correct, you might need to configure your firewall program, or you might need \
+to set a proxy in the Internet connectivity tab of the Preferences dialog (or \
+by calling SetInternetProxy).  For HTTPS connections, you might need to \
+inspect the authenticity of the server's SSL certificate and choose to accept \
+it.\"", 2, 99, 26, 19658855549233343355, "Local", 
+   "Utilities`URLTools`FetchURL"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.821651526892253*^9, 3.821651603091219*^9, 3.8216520132201424`*^9, {
+   3.821652070549116*^9, 3.8216520900319676`*^9}, 3.8216644174666595`*^9, 
+   3.8216647229439573`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[99]:=",ExpressionUUID->"84af104a-c898-4b45-8ad4-\
+8e51b0621076"],
+
+Cell[BoxData["\<\"$Failed\"\>"], "Output",
+ CellChangeTimes->{
+  3.8216515271109858`*^9, 3.821651603106842*^9, 3.8216520132357655`*^9, {
+   3.8216520708928413`*^9, 3.8216520900319676`*^9}, 3.821664417478652*^9, 
+   3.8216647229595823`*^9},
+ CellLabel->"Out[99]=",ExpressionUUID->"50216fbb-f9d7-44ae-bb04-57c26237bfb9"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\:56fe\:7247\:8f6c\:5316\:6210Base64\:7f16\:7801", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"StringDrop", "[", 
+   RowBox[{
+    RowBox[{"StringDrop", "[", 
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{"ExternalEvaluate", "[", 
+        RowBox[{"\"\<Python\>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<import base64\>\"", ",", 
+           "\"\<with open('P:/Users/a1535/Desktop/zo02.jpg','rb') as \
+f:base64_data = base64.b64encode(f.read());\>\"", ",", 
+           "\"\<base64_data.decode()\>\""}], "}"}]}], "]"}], "]"}], 
+      "\[IndentingNewLine]", ",", "13"}], "]"}], "\[IndentingNewLine]", ",", 
+    RowBox[{"-", "1"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8216623666292577`*^9, 3.821662454947136*^9}, {
+   3.8216626361935835`*^9, 3.821662686756192*^9}, 3.8216627658624163`*^9, {
+   3.8216628168055506`*^9, 3.8216628225055857`*^9}, {3.8216628546512327`*^9, 
+   3.821662928294485*^9}, {3.8216629866590433`*^9, 3.821662997597783*^9}, {
+   3.821663048476592*^9, 3.8216631158152103`*^9}, {3.821663160902403*^9, 
+   3.8216632675444317`*^9}},ExpressionUUID->"092982c1-3b9c-451e-a6e9-\
+b07df90861cf"],
+
+Cell[BoxData[
+ RowBox[{"URLEncode", "[", 
+  RowBox[{"(*", "\:56fe\:7247\:8f6c\:5316\:6210Base64\:7f16\:7801", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"StringDrop", "[", 
+    RowBox[{
+     RowBox[{"StringDrop", "[", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"ExternalEvaluate", "[", 
+         RowBox[{"\"\<Python\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"\"\<import base64\>\"", ",", 
+            RowBox[{"\"\<with open('\>\"", "<>", 
+             RowBox[{"StringReplace", "[", 
+              RowBox[{
+              "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\zo02.jpg\>\"", ",", 
+               RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+             "<>", "\"\<','rb') as f:base64_data = \
+base64.b64encode(f.read());\>\""}], ",", "\"\<base64_data.decode()\>\""}], 
+           "}"}]}], "]"}], "]"}], "\[IndentingNewLine]", ",", "13"}], "]"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"-", "1"}]}], "]"}], ",", 
+   RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8216633420995407`*^9, 3.8216633496500072`*^9}, {
+   3.821663423167263*^9, 3.8216634385744553`*^9}, 3.8216634826873665`*^9, 
+   3.8216642213408794`*^9},
+ CellLabel->"In[92]:=",ExpressionUUID->"1c2ac36b-b8df-41cc-8a01-eb829bcc0835"],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellLabel->
+  "In[118]:=",ExpressionUUID->"a879cd66-6b47-4e43-992f-87535a654d71"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\:5e94\:7528\:7684APIKey", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Nw6CPD3exncAAVZ3UF4Hfpz6", ",", 
+     RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:5e94\:7528\:7684SecretKey", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"WSAVSETPg0GOAiNyq70kRTF996XSVxix", ",", 
+     RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "\:56fe\:7247", "=", 
+   "\"\<P:\\\\Users\\\\a1535\\\\Desktop\\\\OCR\:5b9e\:9a8c.png\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:56fe\:7247\:7f16\:7801", "=", 
+   RowBox[{"ToLowerCase", "[", 
+    RowBox[{"URLEncode", "[", 
+     RowBox[{"(*", "\:56fe\:7247\:8f6c\:5316\:6210Base64\:7f16\:7801", "*)"}],
+      "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"StringDrop", "[", 
+       RowBox[{
+        RowBox[{"StringDrop", "[", 
+         RowBox[{
+          RowBox[{"ToString", "[", 
+           RowBox[{"ExternalEvaluate", "[", 
+            RowBox[{"\"\<Python\>\"", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<import base64\>\"", ",", 
+               RowBox[{"\"\<with open('\>\"", "<>", 
+                RowBox[{"StringReplace", "[", 
+                 RowBox[{"\:56fe\:7247", ",", 
+                  RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+                "<>", "\"\<','rb') as f:base64_data = \
+base64.b64encode(f.read());\>\""}], ",", "\"\<base64_data.decode()\>\""}], 
+              "}"}]}], "]"}], "]"}], "\[IndentingNewLine]", ",", "13"}], 
+         "]"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"-", "1"}]}], "]"}], ",", 
+      RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AccessToken\:7f51\:5740", "=", 
+   RowBox[{
+   "\"\<https://aip.baidubce.com/oauth/2.0/token?grant_type=client_\
+credentials&client_id=\>\"", "<>", 
+    RowBox[{"ToString", "[", 
+     RowBox[{"\:5e94\:7528\:7684APIKey", ",", 
+      RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+    "<>", "\"\<&client_secret=\>\"", "<>", 
+    RowBox[{"ToString", "[", 
+     RowBox[{"\:5e94\:7528\:7684SecretKey", ",", 
+      RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], 
+    "<>", "\"\<&\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AccessTokenAPI\:7684\:53cd\:9988", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"AccessToken\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], ",", 
+     RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+  RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\:83b7\:53d6AccessToken", "=", 
+    RowBox[{"StringTake", "[", 
+     RowBox[{"AccessTokenAPI\:7684\:53cd\:9988", ",", 
+      RowBox[{"{", 
+       RowBox[{"246", ",", "315"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"\:8fde\:63a5\:5230OCR", " ", "API"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"OCR\:7f51\:5740", "=", 
+   RowBox[{
+   "\"\<https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=\>\
+\"", " ", "<>", "\:83b7\:53d6AccessToken", "<>", "\"\<image=\>\"", "<>", 
+    "\:56fe\:7247\:7f16\:7801", "<>", 
+    "\"\</Content-Type:application/x-www-form-urlencoded\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"OCRAPI\:7684\:53cd\:9988", "=", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"Import", "[", 
+    RowBox[{"OCR\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}], "]"}], 
+  RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.8216659965628796`*^9, 3.8216660472840157`*^9}, 
+   3.821666081600669*^9, {3.8216666570250697`*^9, 3.8216667009396195`*^9}, 
+   3.8216675583573704`*^9},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"80fd4f2a-990d-433f-a193-d9eec3a144c9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "jsonhintposandchar", 
+   "\"\:884c \\!\\(\\*RowBox[{\\\"1\\\"}]\\):\\!\\(\\*RowBox[{\\\"3\\\"}]\\) \
+\:4e2d\:5b57\:7b26 '\\!\\(\\*RowBox[{\\\"\\\\\\\"!\\\\\\\"\\\"}]\\)' \:9644\
+\:8fd1\:51fa\:73b0\:9519\:8bef.\"", 2, 137, 36, 19658855549233343355, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.821666172748267*^9, 3.821666820498643*^9, 
+  3.8216675651381006`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[129]:=",ExpressionUUID->"6159b26b-7c3c-4532-\
+a396-1c172d095938"],
+
+Cell[BoxData["\<\"$Failed\"\>"], "Output",
+ CellChangeTimes->{3.8216661727638907`*^9, 3.821666820498643*^9, 
+  3.8216675651381006`*^9},
+ CellLabel->
+  "Out[137]=",ExpressionUUID->"3c06a996-fef9-480a-be53-a315be8e8bb3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{"OCR\:7f51\:5740", ",", "\"\<RawJSON\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8216676501560135`*^9, 3.821667650734066*^9}, {
+  3.821671175914775*^9, 3.8216711803629904`*^9}},
+ CellLabel->
+  "In[144]:=",ExpressionUUID->"c3fb5764-f771-4f50-8a77-1950e535ca4c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "jsonhintposandchar", 
+   "\"\:884c \\!\\(\\*RowBox[{\\\"1\\\"}]\\):\\!\\(\\*RowBox[{\\\"3\\\"}]\\) \
+\:4e2d\:5b57\:7b26 '\\!\\(\\*RowBox[{\\\"\\\\\\\"!\\\\\\\"\\\"}]\\)' \:9644\
+\:8fd1\:51fa\:73b0\:9519\:8bef.\"", 2, 144, 37, 19658855549233343355, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.821671182919306*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[144]:=",ExpressionUUID->"2356d523-86d5-40d0-\
+a4b3-66a78c928885"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.8216711829349284`*^9},
+ CellLabel->
+  "Out[144]=",ExpressionUUID->"e05151ab-7859-43ff-911b-54237ebe4195"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"?", "\:56fe\:7247\:7f16\:7801"}]], "Input",
+ CellChangeTimes->{{3.821667336044772*^9, 3.8216673412006197`*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"08e9b475-dc5a-462b-ba2c-8c7313eaccac"]
+},
+WindowSize->{1350, 677},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e1024fee-e46d-40d9-885d-88b6dd5cda02"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1961, 40, 347, "Input",ExpressionUUID->"519f7c3b-7a75-42b5-a66f-556ed9b65928"],
+Cell[CellGroupData[{
+Cell[2544, 64, 306, 6, 28, "Input",ExpressionUUID->"19c68695-4c3a-4870-a41c-1afaed8629b5"],
+Cell[2853, 72, 252, 3, 32, "Output",ExpressionUUID->"6ae05712-20f9-47da-9282-96063dfe8e19"]
+}, Open  ]],
+Cell[3120, 78, 5495, 115, 814, "Input",ExpressionUUID->"7b7e9089-78c9-4c0d-a34c-aba08c2ad6ec"],
+Cell[CellGroupData[{
+Cell[8640, 197, 429, 8, 28, "Input",ExpressionUUID->"d8ce5f34-cbb8-453f-bf1c-1a3df600bca3"],
+Cell[9072, 207, 1645, 30, 145, "Message",ExpressionUUID->"84af104a-c898-4b45-8ad4-8e51b0621076"],
+Cell[10720, 239, 318, 5, 32, "Output",ExpressionUUID->"50216fbb-f9d7-44ae-bb04-57c26237bfb9"]
+}, Open  ]],
+Cell[11053, 247, 1188, 25, 197, "Input",ExpressionUUID->"092982c1-3b9c-451e-a6e9-b07df90861cf"],
+Cell[12244, 274, 1318, 28, 268, "Input",ExpressionUUID->"1c2ac36b-b8df-41cc-8a01-eb829bcc0835"],
+Cell[13565, 304, 156, 3, 45, "Input",ExpressionUUID->"a879cd66-6b47-4e43-992f-87535a654d71"],
+Cell[CellGroupData[{
+Cell[13746, 311, 3994, 95, 566, "Input",ExpressionUUID->"80fd4f2a-990d-433f-a193-d9eec3a144c9"],
+Cell[17743, 408, 540, 11, 24, "Message",ExpressionUUID->"6159b26b-7c3c-4532-a396-1c172d095938"],
+Cell[18286, 421, 218, 4, 32, "Output",ExpressionUUID->"3c06a996-fef9-480a-be53-a315be8e8bb3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18541, 430, 312, 6, 45, "Input",ExpressionUUID->"c3fb5764-f771-4f50-8a77-1950e535ca4c"],
+Cell[18856, 438, 491, 10, 24, "Message",ExpressionUUID->"2356d523-86d5-40d0-a4b3-66a78c928885"],
+Cell[19350, 450, 161, 3, 32, "Output",ExpressionUUID->"e05151ab-7859-43ff-911b-54237ebe4195"]
+}, Open  ]],
+Cell[19526, 456, 218, 4, 28, "Input",ExpressionUUID->"08e9b475-dc5a-462b-ba2c-8c7313eaccac"]
+}
+]
+*)
+
