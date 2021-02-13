@@ -2,6 +2,8 @@ import json
 import requests
 import base64
 import urllib.parse
+from PIL import Image, ImageGrab
+import re
 
 APP_ID = '19166123'
 API_KEY ='Nw6CPD3exncAAVZ3UF4Hfpz6'
@@ -22,7 +24,10 @@ ocr_url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=%
 headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
 # 读取图片并进行base64加密
-body = base64.b64encode(open('P:/Users/a1535/Desktop/OCR实验.png' ,'rb').read())
+im = ImageGrab.grabclipboard()
+im.save('P:\\Users\\a1535\\Desktop\\剪贴板OCR\\OCR实验.png')
+body = base64.b64encode(open('P:\\Users\\a1535\\Desktop\\剪贴板OCR\\OCR实验.png' ,'rb').read())
+
 # 进行urlencode
 data = urllib.parse.urlencode({'image': body})
 
@@ -30,6 +35,8 @@ data = urllib.parse.urlencode({'image': body})
 r = requests.post(url=ocr_url, headers=headers, data=data)
 
 # 输出请求结果
-print('请求码为: %s' %r.status_code)
-res_words = json.loads(r.content)['words_result'][0]['words']
-print('识别结果为: %s' % res_words)
+res_words = json.loads(r.content)['words_result']
+sentence=""
+for word in res_words:
+    sentence += word['words']+"\n"
+print('%s' % sentence)
