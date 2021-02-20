@@ -1,0 +1,64 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1707,         54]
+NotebookOptionsPosition[      1251,         38]
+NotebookOutlinePosition[      1666,         55]
+CellTagsIndexPosition[      1623,         52]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"FromCharacterCode", "[", 
+  RowBox[{
+   RowBox[{"ToCharacterCode", "[", 
+    RowBox[{"\"\<\:541b\>\"", ",", "\"\<UTF8\>\""}], "]"}], ",", 
+   "\"\<UTF8\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8215605349051*^9, 3.821560537556988*^9}, {
+  3.8215605732656612`*^9, 
+  3.821560578301671*^9}},ExpressionUUID->"61b34370-69f4-4be2-9252-\
+4d44206156de"],
+
+Cell[BoxData["\"\<http://api.fanyi.baidu.com/api/trans/vip/translate?q=%e5%90%\
+9b&from=jp&to=zh&appid=20151226000008298&salt=0&sign=\
+977de2911c30ea7bb282878ebd6ac97c\>\""], "Input",
+ CellChangeTimes->{{3.8215620224234285`*^9, 
+  3.821562115089487*^9}},ExpressionUUID->"ba5438fa-0b17-498c-a73d-\
+99213a1eccc7"]
+},
+WindowSize->{775, 561},
+WindowMargins->{{Automatic, 111}, {-124, Automatic}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c0e8a646-de2f-435f-b7c7-30da17f6b016"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 375, 9, 45, "Input",ExpressionUUID->"61b34370-69f4-4be2-9252-4d44206156de"],
+Cell[936, 31, 311, 5, 48, "Input",ExpressionUUID->"ba5438fa-0b17-498c-a73d-99213a1eccc7"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

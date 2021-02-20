@@ -1,0 +1,830 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35452,        822]
+NotebookOptionsPosition[     33327,        777]
+NotebookOutlinePosition[     33740,        794]
+CellTagsIndexPosition[     33697,        791]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MD5\:52a0\:5bc6", "[", "string_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"stream", "=", 
+       RowBox[{"OpenWrite", "[", 
+        RowBox[{"CharacterEncoding", "\[Rule]", " ", "\"\<UTF8\>\""}], 
+        "]"}]}], ",", "file", ",", "hash"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"WriteString", "[", 
+      RowBox[{"stream", ",", "string"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"file", "=", 
+      RowBox[{"Close", "[", "stream", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"hash", "=", 
+      RowBox[{"FileHash", "[", 
+       RowBox[{"file", ",", "\"\<MD5\>\""}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DeleteFile", "[", "file", "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8217354669989076`*^9, 3.821735471298476*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"bd8c9815-a3cd-47e5-b9ba-4f53a0445e3a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HTTPRequest", "[", 
+  RowBox[{
+   RowBox[{
+   "URL", "[", "\"\<http://api.fanyi.baidu.com/api/trans/vip/translate\>\"", 
+    "]"}], ",", 
+   RowBox[{"<|", 
+    RowBox[{"\"\<Query\>\"", "\[Rule]", " ", 
+     StyleBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<q\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<jp\>\""}], ",", 
+        RowBox[{"\"\<to\>\"", "\[Rule]", "\"\<zh\>\""}], ",", 
+        RowBox[{"\"\<appid\>\"", "\[Rule]", "\"\<20151226000008298\>\""}], 
+        ",", 
+        RowBox[{"\"\<salt\>\"", "\[Rule]", "\"\<1\>\""}], ",", 
+        RowBox[{
+        "\"\<sign\>\"", "\[Rule]", 
+         "\"\<256c73f689438b7a10af5a24f028cd09\>\""}]}], "}"}],
+      FontWeight->"Bold"]}], "|>"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.822225295030949*^9, 3.822225296770791*^9}, {
+  3.8222253971459866`*^9, 3.822225436038573*^9}},
+ CellLabel->"In[88]:=",ExpressionUUID->"ba686b36-ad7a-466c-9b4a-fe3e21ffeb27"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["HTTPRequest",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"GET\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{
+                    TagBox[
+                    
+                    RowBox[{
+                    "\"http://api.fanyi.baidu.com/api/trans/v\"", 
+                    "\[Ellipsis]", 
+                    "\"&sign=256c73f689438b7a10af5a24f028cd09\""}], Short], 
+                    "http://api.fanyi.baidu.com/api/trans/vip/translate?q=%E5%\
+90%9B&from=jp&to=zh&appid=20151226000008298&salt=1&sign=\
+256c73f689438b7a10af5a24f028cd09"}, "HyperlinkURL"], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GraphicsBox[{
+              RGBColor[0, 
+               NCache[
+                Rational[2, 3], 0.6666666666666666], 0], 
+              DiskBox[{0, 0}], 
+              InsetBox[
+               FormBox[
+                StyleBox["\"GET\"", 
+                 Directive[10, 
+                  GrayLevel[1], Bold], StripOnInput -> False], 
+                TraditionalForm], 
+               Scaled[{0.53, 0.48}]]}, ImageSize -> 
+             Dynamic[{
+               Automatic, (3 CurrentValue["FontCapHeight"])/
+                AbsoluteCurrentValue[Magnification]}], Background -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"URL: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TemplateBox[{
+                    TagBox[
+                    
+                    RowBox[{
+                    "\"http://api.fanyi.baidu.com/api/trans/v\"", 
+                    "\[Ellipsis]", 
+                    "\"&sign=256c73f689438b7a10af5a24f028cd09\""}], Short], 
+                    "http://api.fanyi.baidu.com/api/trans/vip/translate?q=%E5%\
+90%9B&from=jp&to=zh&appid=20151226000008298&salt=1&sign=\
+256c73f689438b7a10af5a24f028cd09"}, "HyperlinkURL"], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"ContentType: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  HTTPRequest[
+   URL["http://api.fanyi.baidu.com/api/trans/vip/translate"], 
+   Association[
+   "Query" -> {
+     "q" -> "\:541b", "from" -> "jp", "to" -> "zh", "appid" -> 
+      "20151226000008298", "salt" -> "1", "sign" -> 
+      "256c73f689438b7a10af5a24f028cd09"}]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.822225437683158*^9},
+ CellLabel->"Out[88]=",ExpressionUUID->"878e4410-b3f6-4876-93ea-02a0ed98eadc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{"URLRead", "[", 
+   RowBox[{"HTTPRequest", "[", 
+    RowBox[{
+     RowBox[{
+     "URL", "[", "\"\<http://api.fanyi.baidu.com/api/trans/vip/translate\>\"",
+       "]"}], ",", 
+     RowBox[{"<|", 
+      RowBox[{"\"\<Query\>\"", "\[Rule]", " ", 
+       StyleBox[
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<q\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+          RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<jp\>\""}], ",", 
+          RowBox[{"\"\<to\>\"", "\[Rule]", "\"\<zh\>\""}], ",", 
+          RowBox[{"\"\<appid\>\"", "\[Rule]", "\"\<20151226000008298\>\""}], 
+          ",", 
+          RowBox[{"\"\<salt\>\"", "\[Rule]", "\"\<1\>\""}], ",", 
+          RowBox[{
+          "\"\<sign\>\"", "\[Rule]", 
+           "\"\<256c73f689438b7a10af5a24f028cd09\>\""}]}], "}"}],
+        FontWeight->"Bold"]}], "|>"}]}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8224296674584317`*^9, 3.8224296962098484`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"b40852cb-e895-4b6c-8a6b-c3a3a4c69044"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"from\"\>", "\[Rule]", "\<\"jp\"\>"}], ",", 
+   RowBox[{"\<\"to\"\>", "\[Rule]", "\<\"zh\"\>"}], ",", 
+   RowBox[{"\<\"trans_result\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\<\"src\"\>", "\[Rule]", "\<\"\:541b\"\>"}], ",", 
+       RowBox[{"\<\"dst\"\>", "\[Rule]", "\<\"\:4f60\"\>"}]}], "}"}], 
+     "}"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.822429672727392*^9, 3.8224296974531317`*^9}},
+ CellLabel->"Out[2]=",ExpressionUUID->"addd4c23-15b6-4d2c-9fd3-312186e1f9b5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"First", "[", 
+  RowBox[{"(*", 
+   RowBox[{"\:4ece\:5217\:8868\:4e2d\:53d6\:51fa\:8bd1\:6587", " ", 
+    RowBox[{"e", ".", "g", ".", " ", "\"\<\:4f60\>\""}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"(*", 
+    RowBox[{"\:53d6\:51fa\:8bd1\:6587\:7684\:5217\:8868", " ", 
+     RowBox[{"e", ".", "g", ".", " ", 
+      RowBox[{"{", "\"\<\:4f60\>\"", "}"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Last", "[", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"\:53d6\:51fa\:7ffb\:8bd1", " ", 
+        RowBox[{"e", ".", "g", ".", " ", "\"\<dst\>\""}]}], "\[Rule]", 
+       "\"\<\:4f60\>\""}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"First", "[", 
+      RowBox[{"(*", 
+       RowBox[{"\:53d6\:51fa\:539f\:6587\:548c\:7ffb\:8bd1", " ", 
+        RowBox[{"e", ".", "g", ".", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+           RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], "}"}]}]}], 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Cases", "[", 
+       RowBox[{
+        RowBox[{"Last", "[", 
+         RowBox[{"Import", "[", 
+          RowBox[{"URLRead", "[", "req", "]"}], "]"}], "]"}], 
+        RowBox[{"(*", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<jp\>\""}], ",", 
+           RowBox[{"\"\<to\>\"", "\[Rule]", "\"\<zh\>\""}], ",", 
+           RowBox[{"\"\<trans_result\>\"", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+               RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], "}"}], 
+             "}"}]}]}], "}"}], "*)"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"_", ",", "_"}], "}"}], ",", "2"}], "]"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "\:53d6\:51fa\:539f\:6587\:548c\:7ffb\:8bd1\:7684\:53cc\:91cd\:5217\
+\:8868", " ", 
+        RowBox[{"e", ".", "g", ".", " ", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+            RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], "}"}], 
+          "}"}]}]}], "*)"}], "\[IndentingNewLine]", "]"}], 
+     "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+    RowBox[{"Except", "[", "\"\<dst\>\"", "]"}]}], "]"}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.8222243550358095`*^9, 3.8222244016912127`*^9}, {
+  3.82222446923419*^9, 3.822224492501684*^9}, {3.822224529973774*^9, 
+  3.822224553262151*^9}, {3.8222246428088675`*^9, 3.822224773038204*^9}, {
+  3.822224826152972*^9, 3.8222248519919057`*^9}, {3.8222249177365837`*^9, 
+  3.822224927224752*^9}},ExpressionUUID->"5beb27fd-3dc1-4b77-90e5-\
+1c567f49c516"],
+
+Cell[BoxData["\<\"\:4f60\"\>"], "Output",
+ CellChangeTimes->{3.822224402544132*^9, 3.8222245030030427`*^9},
+ CellLabel->"Out[77]=",ExpressionUUID->"7c051da3-1bac-46e9-ba89-b2ebce30d37a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Association", "[", 
+   RowBox[{
+    RowBox[{"Association", "[", "req", "]"}], "[", "\"\<trans_result\>\"", 
+    "]"}], "]"}], "[", "\"\<dst\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8225110188281765`*^9, 3.822511031063348*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"bafef509-ee75-425c-b4c5-7bc0ba1f5960"],
+
+Cell[BoxData["\<\"\:4f60\"\>"], "Output",
+ CellChangeTimes->{3.82251103225077*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"dc14998c-97aa-4da9-bcad-2477c3a56bea"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\:6587\:672c\:7ffb\:8bd1", "[", 
+   RowBox[{
+   "\:539f\:6587_", ",", "\:539f\:6765\:7684\:8bed\:8a00_", ",", 
+    "\:7ffb\:8bd1\:6210\:7684\:8bed\:8a00_", ",", "appid_", ",", 
+    "appid\:7684\:5bc6\:5319_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"(*", "\:57fa\:672c\:5185\:5bb9", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9", "=", 
+       RowBox[{"FromCharacterCode", "[", 
+        RowBox[{
+         RowBox[{"ToCharacterCode", "[", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"HoldForm", "[", "\:539f\:6587", "]"}], "]"}], ",", 
+           "\"\<UTF8\>\""}], "]"}], ",", "\"\<UTF8\>\""}], "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\:6e90\:8bed\:8a00", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:539f\:6765\:7684\:8bed\:8a00", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"\:76ee\:6807\:8bed\:8a00", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:7ffb\:8bd1\:6210\:7684\:8bed\:8a00", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"APPID", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"\:968f\:673a\:7801", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{"RandomInteger", "[", "]"}], ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\n", 
+      RowBox[{"\:5bc6\:94a5", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid\:7684\:5bc6\:5319", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", "\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", ",",
+       "\[IndentingNewLine]", "MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d", ",", 
+      "\[IndentingNewLine]", "API\:7684\:53cd\:9988", ",", 
+      "\[IndentingNewLine]", "\:7ffb\:8bd1\:7684\:7ed3\:679c", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", "MD5\:52a0\:5bc6\:5185\:5bb9", "*)"}], 
+      "\[IndentingNewLine]", "MD5\:52a0\:5bc6"}], "}"}], ",", 
+    RowBox[{"(*", "\:5c40\:90e8\:53d8\:91cf\:5b9a\:4e49\:5b8c\:6210", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "\:5f00\:59cb\:5269\:4e0b\:7684\:6b65\:9aa4", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "MD5\:52a0\:5bc6", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"MD5\:52a0\:5bc6", "[", "string_String", "]"}], ":=", 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"stream", "=", 
+           RowBox[{"OpenWrite", "[", 
+            RowBox[{"CharacterEncoding", "\[Rule]", " ", "\"\<UTF8\>\""}], 
+            "]"}]}], ",", "file", ",", "hash"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"WriteString", "[", 
+          RowBox[{"stream", ",", "string"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"file", "=", 
+          RowBox[{"Close", "[", "stream", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"hash", "=", 
+          RowBox[{"FileHash", "[", 
+           RowBox[{"file", ",", "\"\<MD5\>\""}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"DeleteFile", "[", "file", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"StringTake", "[", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"BaseForm", "[", 
+             RowBox[{"hash", ",", "16"}], "]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"StringLength", "[", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"BaseForm", "[", 
+               RowBox[{"hash", ",", "16"}], "]"}], "]"}], "]"}], "-", "2"}]}],
+           "]"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", "=", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"APPID", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], "<>",
+        "\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9", "<>", "\:968f\:673a\:7801", "<>",
+        "\:5bc6\:94a5"}]}], "\n", ";", 
+     RowBox[{"MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d", "=", 
+      RowBox[{"StringDrop", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"StringTake", "[", 
+           RowBox[{
+            RowBox[{"ToString", "[", 
+             RowBox[{"BaseForm", "[", 
+              RowBox[{
+               RowBox[{"MD5\:52a0\:5bc6", "[", "#", "]"}], ",", "16"}], "]"}],
+              "]"}], ",", 
+            RowBox[{
+             RowBox[{"StringLength", "[", 
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"MD5\:52a0\:5bc6", "[", "#", "]"}], "//", 
+                RowBox[{
+                 RowBox[{"BaseForm", "[", 
+                  RowBox[{"#", ",", "16"}], "]"}], "&"}]}], "]"}], "]"}], "-",
+              "2"}]}], "]"}], "&"}], "[", 
+         "\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", "]"}], ",", 
+        RowBox[{"-", "31"}]}], "]"}]}], ";", "\n", 
+     RowBox[{"API\:7684\:53cd\:9988", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{"URLRead", "[", 
+        RowBox[{"HTTPRequest", "[", 
+         RowBox[{
+          RowBox[{
+          "URL", "[", 
+           "\"\<http://api.fanyi.baidu.com/api/trans/vip/translate\>\"", 
+           "]"}], ",", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<Query\>\"", "\[Rule]", " ", 
+            StyleBox[
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+               "\"\<q\>\"", "\[Rule]", 
+                "\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9"}], ",", 
+               RowBox[{"\"\<from\>\"", "\[Rule]", "\:6e90\:8bed\:8a00"}], ",", 
+               RowBox[{"\"\<to\>\"", "\[Rule]", "\:76ee\:6807\:8bed\:8a00"}], 
+               ",", 
+               RowBox[{"\"\<appid\>\"", "\[Rule]", "APPID"}], ",", 
+               RowBox[{"\"\<salt\>\"", "\[Rule]", "\:968f\:673a\:7801"}], ",", 
+               RowBox[{
+               "\"\<sign\>\"", "\[Rule]", 
+                "MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d"}]}], "}"}],
+             FontWeight->"Bold"]}], "|>"}]}], "]"}], "]"}], "]"}]}], 
+     RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\:7ffb\:8bd1\:7684\:7ed3\:679c", "=", 
+      RowBox[{"First", "[", 
+       RowBox[{"(*", 
+        RowBox[{"\:4ece\:5217\:8868\:4e2d\:53d6\:51fa\:8bd1\:6587", " ", 
+         RowBox[{"e", ".", "g", ".", " ", "\"\<\:4f60\>\""}]}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Cases", "[", 
+        RowBox[{"(*", 
+         RowBox[{"\:53d6\:51fa\:8bd1\:6587\:7684\:5217\:8868", " ", 
+          RowBox[{"e", ".", "g", ".", " ", 
+           RowBox[{"{", "\"\<\:4f60\>\"", "}"}]}]}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Last", "[", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"\:53d6\:51fa\:7ffb\:8bd1", " ", 
+             RowBox[{"e", ".", "g", ".", " ", "\"\<dst\>\""}]}], "\[Rule]", 
+            "\"\<\:4f60\>\""}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"First", "[", 
+           RowBox[{"(*", 
+            RowBox[{"\:53d6\:51fa\:539f\:6587\:548c\:7ffb\:8bd1", " ", 
+             RowBox[{"e", ".", "g", ".", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+                RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], 
+               "}"}]}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"Cases", "[", 
+            RowBox[{
+             RowBox[{"Last", "[", "API\:7684\:53cd\:9988", "]"}], 
+             RowBox[{"(*", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<jp\>\""}], ",", 
+                RowBox[{"\"\<to\>\"", "\[Rule]", "\"\<zh\>\""}], ",", 
+                RowBox[{"\"\<trans_result\>\"", "\[Rule]", 
+                 RowBox[{"{", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+                    RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], 
+                   "}"}], "}"}]}]}], "}"}], "*)"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"_", ",", "_"}], "}"}], ",", "2"}], "]"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "\:53d6\:51fa\:539f\:6587\:548c\:7ffb\:8bd1\:7684\:53cc\:91cd\
+\:5217\:8868", " ", 
+             RowBox[{"e", ".", "g", ".", " ", 
+              RowBox[{"{", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"\"\<src\>\"", "\[Rule]", "\"\<\:541b\>\""}], ",", 
+                 RowBox[{"\"\<dst\>\"", "\[Rule]", "\"\<\:4f60\>\""}]}], 
+                "}"}], "}"}]}]}], "*)"}], "\[IndentingNewLine]", "]"}], 
+          "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+         RowBox[{"Except", "[", "\"\<dst\>\"", "]"}]}], "]"}], 
+       "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+     "\:7ffb\:8bd1\:7684\:7ed3\:679c"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8222256680325727`*^9, 3.8222257138961267`*^9}, {
+   3.822225751639395*^9, 3.8222258243915462`*^9}, {3.822225902442065*^9, 
+   3.822225907057566*^9}, {3.8222268015092773`*^9, 3.822226847058399*^9}, {
+   3.8222269033550634`*^9, 3.8222269328954477`*^9}, 3.8222272159834027`*^9, {
+   3.822227336928669*^9, 3.8222273570278635`*^9}, {3.8222274731098585`*^9, 
+   3.8222275043541145`*^9}, {3.8222275503994894`*^9, 
+   3.8222275781289034`*^9}, {3.822227617134596*^9, 3.8222276447428446`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"5f1977b7-e28c-4fbc-9043-244eb4ccfda7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\:6587\:672c\:7ffb\:8bd1", "[", 
+    RowBox[{
+    "#", ",", "jp", ",", "zh", ",", "20151226000008298", ",", 
+     "rRWmwpMWAncqC2oSw3bH"}], "]"}], "&"}], "[", 
+  "\:30c7\:30fc\:30bf\:304c\:30b3\:30ad\:30e3\:30af\:3067\:3042\:308b\:4e8b\
+\:3092\:793a\:3057\:307e\:3059", "]"}]], "Input",
+ CellChangeTimes->{{3.8216452839698944`*^9, 3.821645288438324*^9}, {
+   3.8216453190611267`*^9, 3.8216453582458267`*^9}, {3.8216456284571333`*^9, 
+   3.821645637878334*^9}, 3.822227026129531*^9, 3.8222277023655753`*^9, {
+   3.822368622348186*^9, 3.8223686644460163`*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"95612438-00e5-434c-aa5d-c882a2e65111"],
+
+Cell[BoxData["\<\"\:8868\:793a\:6570\:636e\:4e3a\:30b3\:30b1\:30c3\:30af\"\>"]\
+, "Output",
+ CellChangeTimes->{3.8225113913750963`*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"edf767cd-2600-4396-803a-018625e9b1eb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\:6587\:672c\:7ffb\:8bd1", "[", 
+   RowBox[{
+   "\:539f\:6587_", ",", "\:539f\:6765\:7684\:8bed\:8a00_", ",", 
+    "\:7ffb\:8bd1\:6210\:7684\:8bed\:8a00_", ",", "appid_", ",", 
+    "appid\:7684\:5bc6\:5319_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"(*", "\:57fa\:672c\:5185\:5bb9", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9", "=", 
+       RowBox[{"FromCharacterCode", "[", 
+        RowBox[{
+         RowBox[{"ToCharacterCode", "[", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"HoldForm", "[", "\:539f\:6587", "]"}], "]"}], ",", 
+           "\"\<UTF8\>\""}], "]"}], ",", "\"\<UTF8\>\""}], "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\:6e90\:8bed\:8a00", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:539f\:6765\:7684\:8bed\:8a00", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"\:76ee\:6807\:8bed\:8a00", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"\:7ffb\:8bd1\:6210\:7684\:8bed\:8a00", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"APPID", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"\:968f\:673a\:7801", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{"RandomInteger", "[", "]"}], ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\n", 
+      RowBox[{"\:5bc6\:94a5", "=", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"appid\:7684\:5bc6\:5319", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}]}], 
+      ",", "\[IndentingNewLine]", "\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", ",",
+       "\[IndentingNewLine]", "MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d", ",", 
+      "\[IndentingNewLine]", "API\:7684\:53cd\:9988", ",", 
+      "\[IndentingNewLine]", "\:7ffb\:8bd1\:7684\:7ed3\:679c", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", "MD5\:52a0\:5bc6\:5185\:5bb9", "*)"}], 
+      "\[IndentingNewLine]", "MD5\:52a0\:5bc6"}], "}"}], ",", 
+    RowBox[{"(*", "\:5c40\:90e8\:53d8\:91cf\:5b9a\:4e49\:5b8c\:6210", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "\:5f00\:59cb\:5269\:4e0b\:7684\:6b65\:9aa4", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "MD5\:52a0\:5bc6", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"MD5\:52a0\:5bc6", "[", "string_String", "]"}], ":=", 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"stream", "=", 
+           RowBox[{"OpenWrite", "[", 
+            RowBox[{"CharacterEncoding", "\[Rule]", " ", "\"\<UTF8\>\""}], 
+            "]"}]}], ",", "file", ",", "hash"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"WriteString", "[", 
+          RowBox[{"stream", ",", "string"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"file", "=", 
+          RowBox[{"Close", "[", "stream", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"hash", "=", 
+          RowBox[{"FileHash", "[", 
+           RowBox[{"file", ",", "\"\<MD5\>\""}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"DeleteFile", "[", "file", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"StringTake", "[", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"BaseForm", "[", 
+             RowBox[{"hash", ",", "16"}], "]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"StringLength", "[", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"BaseForm", "[", 
+               RowBox[{"hash", ",", "16"}], "]"}], "]"}], "]"}], "-", "2"}]}],
+           "]"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", "=", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"APPID", ",", 
+         RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF8\>\""}]}], "]"}], "<>",
+        "\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9", "<>", "\:968f\:673a\:7801", "<>",
+        "\:5bc6\:94a5"}]}], "\n", ";", 
+     RowBox[{"MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d", "=", 
+      RowBox[{"StringDrop", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"StringTake", "[", 
+           RowBox[{
+            RowBox[{"ToString", "[", 
+             RowBox[{"BaseForm", "[", 
+              RowBox[{
+               RowBox[{"MD5\:52a0\:5bc6", "[", "#", "]"}], ",", "16"}], "]"}],
+              "]"}], ",", 
+            RowBox[{
+             RowBox[{"StringLength", "[", 
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"MD5\:52a0\:5bc6", "[", "#", "]"}], "//", 
+                RowBox[{
+                 RowBox[{"BaseForm", "[", 
+                  RowBox[{"#", ",", "16"}], "]"}], "&"}]}], "]"}], "]"}], "-",
+              "2"}]}], "]"}], "&"}], "[", 
+         "\:52a0\:5bc6\:524d\:7684\:7b7e\:540d", "]"}], ",", 
+        RowBox[{"-", "31"}]}], "]"}]}], ";", "\n", 
+     RowBox[{"API\:7684\:53cd\:9988", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{"URLRead", "[", 
+        RowBox[{"HTTPRequest", "[", 
+         RowBox[{
+          RowBox[{
+          "URL", "[", 
+           "\"\<http://api.fanyi.baidu.com/api/trans/vip/translate\>\"", 
+           "]"}], ",", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<Query\>\"", "\[Rule]", " ", 
+            StyleBox[
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+               "\"\<q\>\"", "\[Rule]", 
+                "\:8981\:7ffb\:8bd1\:7684\:5185\:5bb9"}], ",", 
+               RowBox[{"\"\<from\>\"", "\[Rule]", "\:6e90\:8bed\:8a00"}], ",", 
+               RowBox[{"\"\<to\>\"", "\[Rule]", "\:76ee\:6807\:8bed\:8a00"}], 
+               ",", 
+               RowBox[{"\"\<appid\>\"", "\[Rule]", "APPID"}], ",", 
+               RowBox[{"\"\<salt\>\"", "\[Rule]", "\:968f\:673a\:7801"}], ",", 
+               RowBox[{
+               "\"\<sign\>\"", "\[Rule]", 
+                "MD5\:52a0\:5bc6\:540e\:7684\:7b7e\:540d"}]}], "}"}],
+             FontWeight->"Bold"]}], "|>"}]}], "]"}], "]"}], "]"}]}], 
+     RowBox[{"(*", "\:6253\:5f00\:7f51\:5740", "*)"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\:7ffb\:8bd1\:7684\:7ed3\:679c", "=", 
+      RowBox[{
+       RowBox[{"Association", "[", 
+        RowBox[{
+         RowBox[{"Association", "[", "API\:7684\:53cd\:9988", "]"}], "[", 
+         "\"\<trans_result\>\"", "]"}], "]"}], "[", "\"\<dst\>\"", "]"}]}], 
+     ";", "\[IndentingNewLine]", "\:7ffb\:8bd1\:7684\:7ed3\:679c"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8222256680325727`*^9, 3.8222257138961267`*^9}, {
+   3.822225751639395*^9, 3.8222258243915462`*^9}, {3.822225902442065*^9, 
+   3.822225907057566*^9}, {3.8222268015092773`*^9, 3.822226847058399*^9}, {
+   3.8222269033550634`*^9, 3.8222269328954477`*^9}, 3.8222272159834027`*^9, {
+   3.822227336928669*^9, 3.8222273570278635`*^9}, {3.8222274731098585`*^9, 
+   3.8222275043541145`*^9}, {3.8222275503994894`*^9, 
+   3.8222275781289034`*^9}, {3.822227617134596*^9, 3.8222276447428446`*^9}, {
+   3.8225113381186695`*^9, 3.8225113457493067`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"4bf48745-e536-42de-8ac5-d76e4bbe452f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\:6587\:672c\:7ffb\:8bd1", "[", 
+    RowBox[{
+    "#", ",", "jp", ",", "zh", ",", "20151226000008298", ",", 
+     "rRWmwpMWAncqC2oSw3bH"}], "]"}], "&"}], "[", "\:624b\:4f1d", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8216452839698944`*^9, 3.821645288438324*^9}, {
+   3.8216453190611267`*^9, 3.8216453582458267`*^9}, {3.8216456284571333`*^9, 
+   3.821645637878334*^9}, 3.822227026129531*^9, 3.8222277023655753`*^9, {
+   3.822368622348186*^9, 3.8223686644460163`*^9}, {3.8225290685603848`*^9, 
+   3.8225290721314154`*^9}, 3.8225291142864046`*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"dfdc22a2-45e9-4983-9d3a-9a12ce7f1dbc"],
+
+Cell[BoxData["\<\"\:624b\:4f20\"\>"], "Output",
+ CellChangeTimes->{3.8225113913750963`*^9, 3.8225291202996387`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"040d12cd-d306-4e14-b8f1-9af3120d16d6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\:6587\:672c\:7ffb\:8bd1", "[", 
+    RowBox[{
+    "#", ",", "en", ",", "zh", ",", "20151226000008298", ",", 
+     "rRWmwpMWAncqC2oSw3bH"}], "]"}], "&"}], "[", 
+  "\"\<The host specification First is wrong because the domain or port is \
+invalid\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8225552542122965`*^9, 3.822555339563957*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"0e585992-f288-414f-bb4c-82d7fe5db8b2"],
+
+Cell[BoxData["\<\"\:7b2c\:4e00\:4e2a\:4e3b\:673a\:89c4\:8303\:662f\:9519\:8bef\
+\:7684\:ff0c\:56e0\:4e3a\:57df\:6216\:7aef\:53e3\:65e0\:6548\"\>"], "Output",
+ CellChangeTimes->{3.822555340872472*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"57639b14-d1af-4142-a146-2abffc42c6a1"]
+}, Open  ]]
+},
+WindowSize->{846, 446},
+WindowMargins->{{Automatic, 113}, {48, Automatic}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"aa95a3c6-c12b-4688-86f1-86b2a7fff98f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 944, 22, 193, "Input",ExpressionUUID->"bd8c9815-a3cd-47e5-b9ba-4f53a0445e3a"],
+Cell[CellGroupData[{
+Cell[1527, 46, 993, 23, 85, "Input",ExpressionUUID->"ba686b36-ad7a-466c-9b4a-fe3e21ffeb27"],
+Cell[2523, 71, 5120, 114, 73, "Output",ExpressionUUID->"878e4410-b3f6-4876-93ea-02a0ed98eadc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7680, 190, 1051, 24, 122, "Input",ExpressionUUID->"b40852cb-e895-4b6c-8a6b-c3a3a4c69044"],
+Cell[8734, 216, 574, 13, 32, "Output",ExpressionUUID->"addd4c23-15b6-4d2c-9fd3-312186e1f9b5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9345, 234, 2882, 66, 327, "Input",ExpressionUUID->"5beb27fd-3dc1-4b77-90e5-1c567f49c516"],
+Cell[12230, 302, 186, 2, 32, "Output",ExpressionUUID->"7c051da3-1bac-46e9-ba89-b2ebce30d37a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12453, 309, 344, 7, 45, "Input",ExpressionUUID->"bafef509-ee75-425c-b4c5-7bc0ba1f5960"],
+Cell[12800, 318, 161, 2, 32, "Output",ExpressionUUID->"dc14998c-97aa-4da9-bcad-2477c3a56bea"]
+}, Open  ]],
+Cell[12976, 323, 10088, 219, 1372, "Input",ExpressionUUID->"5f1977b7-e28c-4fbc-9043-244eb4ccfda7"],
+Cell[CellGroupData[{
+Cell[23089, 546, 684, 13, 28, "Input",ExpressionUUID->"95612438-00e5-434c-aa5d-c882a2e65111"],
+Cell[23776, 561, 214, 3, 32, "Output",ExpressionUUID->"edf767cd-2600-4396-803a-018625e9b1eb"]
+}, Open  ]],
+Cell[24005, 567, 7639, 166, 1092, "Input",ExpressionUUID->"4bf48745-e536-42de-8ac5-d76e4bbe452f"],
+Cell[CellGroupData[{
+Cell[31669, 737, 669, 13, 28, "Input",ExpressionUUID->"dfdc22a2-45e9-4983-9d3a-9a12ce7f1dbc"],
+Cell[32341, 752, 193, 2, 32, "Output",ExpressionUUID->"040d12cd-d306-4e14-b8f1-9af3120d16d6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32571, 759, 460, 10, 48, "Input",ExpressionUUID->"0e585992-f288-414f-bb4c-82d7fe5db8b2"],
+Cell[33034, 771, 277, 3, 32, "Output",ExpressionUUID->"57639b14-d1af-4142-a146-2abffc42c6a1"]
+}, Open  ]]
+}
+]
+*)
+

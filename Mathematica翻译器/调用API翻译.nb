@@ -1,0 +1,88 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2669,         80]
+NotebookOptionsPosition[      2303,         65]
+NotebookOutlinePosition[      2716,         82]
+CellTagsIndexPosition[      2673,         79]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"YoudaoTranslate", "[", 
+   RowBox[{"str_", ",", 
+    RowBox[{"from_", ":", "\"\<en\>\""}], ",", 
+    RowBox[{"to_", ":", "\"\<zh\>\""}]}], "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "q", ",", "appid", ",", "key", ",", "salt", ",", "sign", ",", "data"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"q", "=", "str"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"appid", "=", "\"\<neverland\>\""}], ";", 
+     RowBox[{"(*", 
+      RowBox[{
+      "\:4f60\:7684appid", "\:ff0c", 
+       "\:5982\:4f55\:7533\:8bf7\:8bf7\:81ea\:884c\:767e\:5ea6"}], "*)"}], 
+     RowBox[{"key", "=", "\"\<969918857\>\""}], ";", 
+     RowBox[{"(*", "\:4f60\:7684key", "*)"}], 
+     RowBox[{"salt", "=", 
+      RowBox[{"ToString", "@", 
+       RowBox[{"RandomInteger", "[", 
+        RowBox[{"2", "^", "32"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"data", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{
+         "\"\<http://fanyi.youdao.com/openapi.do?keyfrom=\>\"", ",", "appid", 
+          ",", "\"\<&key=\>\"", ",", "key", ",", 
+          "\"\<&type=data&doctype=json&version=1.1&q=\>\"", ",", 
+          RowBox[{"URLEncode", "@", "q"}]}], "]"}], ",", "\"\<RawJSON\>\""}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"data", "[", "\"\<trans_result\>\"", "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "[", "\"\<dst\>\"", "]"}]}]}], 
+   "]"}]}], "\n", 
+ RowBox[{"YoudaoTranslate", "[", "\"\<an apple a day\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.8214393571269307`*^9, 
+  3.8214393571289315`*^9}},ExpressionUUID->"605e7ac2-27f9-4efd-9738-\
+a8e55c2e7963"]
+},
+WindowSize->{1366, 685},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8b4df249-7b7f-45f0-b9f7-74dbb3be1e2e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1741, 43, 159, "Input",ExpressionUUID->"605e7ac2-27f9-4efd-9738-a8e55c2e7963"]
+}
+]
+*)
+
